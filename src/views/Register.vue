@@ -60,9 +60,8 @@ export default Vue.extend({
         if (user.user) {
           firebase.database().ref(`users/${user.user.uid}`).set({
             email: this.email,
-          });
+          }).then(() => { this.$router.replace('home'); });
         }
-        this.$router.replace('home');
       },
       (err) => {
         // eslint-disable-next-line no-alert
