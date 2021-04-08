@@ -9,36 +9,41 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/landing',
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue'),
   },
   {
     path: '/register',
     name: 'Register',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue'),
+    component: () => import(/* webpackChunkName: "register" */ '../views/Register.vue'),
   },
   {
     path: '/reset',
     name: 'Reset',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Reset.vue'),
+    component: () => import(/* webpackChunkName: "reset" */ '../views/Reset.vue'),
+  },
+  {
+    path: '/landing',
+    name: 'Landing',
+    component: () => import(/* webpackChunkName: "landing" */ '../views/Landing.vue'),
   },
   {
     path: '/home',
     name: 'Home',
     component: Home,
     meta: {
-      requiresAuth: false,
+      requiresAuth: true,
     },
   },
 ];
 
 const router = new VueRouter({
   mode: 'history',
-  // base: process.env.BASE_URL,
+  base: process.env.BASE_URL,
   routes,
 });
 
