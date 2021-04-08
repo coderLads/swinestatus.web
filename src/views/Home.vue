@@ -27,7 +27,7 @@ export default {
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        console.log(user.uid);
+        // console.log(user.uid);
         this.uid = user.uid;
       } else {
         this.$router.replace('login');
