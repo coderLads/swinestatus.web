@@ -1,5 +1,11 @@
 <template>
-  <div id="app" class="bg-gradient-to-br from-purple-100 to-pink-300 pt-12">
+  <div id="app" class="pt-12">
     <router-view/>
   </div>
 </template>
+
+<style scoped>
+#app {
+  background-image: url("./assets/pig.svg");
+}
+</style>

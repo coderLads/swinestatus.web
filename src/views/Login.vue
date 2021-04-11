@@ -23,19 +23,19 @@
     </div>
     <div class="flex items-center justify-between">
       <button
-        class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        class="transition-colors bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         type="button"
         @click="login">
       Login
       </button>
       <router-link
         to="/reset"
-        class="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-800"
+        class="transition-colors inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-800"
         href="#"
       >Forgot Password?</router-link>
       <router-link
         to="/register"
-        class="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-800"
+        class="transition-colors inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-800"
         href="#"
       >Sign up?</router-link>
     </div>

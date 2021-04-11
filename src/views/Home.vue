@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full">
     <button
-      class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline float-right mt-2 mr-2"
+      class="transition-colors bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline float-right mt-2 mr-2"
       type="button"
       @click="signOut"
     >
