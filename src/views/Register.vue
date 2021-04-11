@@ -38,12 +38,6 @@
         @click="signUp">
       Sign Up
       </button>
-      <button
-        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        type="button"
-        @click="nameTest">
-      SwineName
-      </button>
       <router-link
         to="/login"
         class="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-800"
@@ -74,9 +68,6 @@ export default {
     };
   },
   methods: {
-    nameTest() {
-      SwineName();
-    },
     checkExisting() {
       return new Promise((resolve, reject) => {
         firebase.database().ref('/users/').on('value', (snapshot) => {
@@ -96,10 +87,14 @@ export default {
         firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then((user) => {
           if (user.user) {
             SwineName().then((name) => {
+              let usedName = name;
+              if (this.passedName) {
+                usedName = this.passedName;
+              }
               firebase.database().ref(`users/${user.user.uid}`).set({
                 email: this.email,
                 username: this.username,
-                swinename: name,
+                swinename: usedName,
               }).then(() => { this.$router.replace('home'); });
             });
           }
@@ -113,9 +108,6 @@ export default {
         alert(err);
       });
     },
-  },
-  mounted() {
-    console.log(this.passedName);
   },
 };
 </script>
