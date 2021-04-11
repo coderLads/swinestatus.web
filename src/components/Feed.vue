@@ -1,5 +1,11 @@
 <template>
-  <div class="bg-indigo-500 h-full w-full">
+  <div class="bg-indigo-500 h-full w-full grid grid-cols-8 auto-rows-min gap-4 p-4">
+    <StatusTile v-for="friend in friendData" :key='friend' :uid='friend'/>
+    <StatusTile v-for="friend in friendData" :key='friend' :uid='friend'/>
+    <StatusTile v-for="friend in friendData" :key='friend' :uid='friend'/>
+    <StatusTile v-for="friend in friendData" :key='friend' :uid='friend'/>
+    <StatusTile v-for="friend in friendData" :key='friend' :uid='friend'/>
+    <StatusTile v-for="friend in friendData" :key='friend' :uid='friend'/>
     <StatusTile v-for="friend in friendData" :key='friend' :uid='friend'/>
   </div>
 </template>
@@ -13,11 +19,9 @@ import StatusTile from './StatusTile.vue';
 
 export default {
   name: 'Feed',
-  props: {
-    uid: String,
-  },
   data() {
     return {
+      uid: '',
       friendData: [],
     };
   },
@@ -25,9 +29,10 @@ export default {
     StatusTile,
   },
   mounted() {
-    firebase.database().ref(`/users/${this.uid}/friends/`).on('value', (snapshot) => {
+    this.uid = firebase.auth().currentUser.uid;
+    const friendListRef = firebase.database().ref(`/users/${this.uid}/friends/`);
+    friendListRef.on('value', (snapshot) => {
       if (snapshot.val()) {
-        console.log(snapshot.val());
         this.friendData = Object.keys(snapshot.val());
       }
     });

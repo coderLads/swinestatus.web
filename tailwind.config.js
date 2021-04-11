@@ -4,6 +4,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      rotate:{
+        '-35': '-35deg',
+      },
       gridTemplateColumns: {
         '15': 'repeat(15, minmax(0, 1fr))',
       },
