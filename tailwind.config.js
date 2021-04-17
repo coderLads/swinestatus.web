@@ -7,6 +7,9 @@ module.exports = {
       rotate:{
         '-35': '-35deg',
       },
+      gridTemplateRows: {
+        'profile': '3.5rem 1.5fr 1fr'
+      },
       gridTemplateColumns: {
         '15': 'repeat(15, minmax(0, 1fr))',
       },

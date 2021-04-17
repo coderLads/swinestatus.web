@@ -19,8 +19,12 @@ export default {
       userData: {},
     };
   },
-  mounted() {
-    Status(this.uid).then((data) => { this.userData = data; });
+  watch: {
+    uid(newVal) {
+      if (newVal) {
+        Status(newVal).then((data) => { this.userData = data; });
+      }
+    },
   },
 };
 </script>
